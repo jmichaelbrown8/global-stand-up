@@ -31,7 +31,13 @@ module.exports = {
   },
   /** PUT to update a user by its _id */
   updateUser(req, res) {
-    res.send("Unimplemented");
+    User.findOneAndUpdate(
+      { _id: req.params.userId },
+      { $set: req.body },
+      { runValidators: true, new: true }
+    )
+      .then((user) => res.json(user))
+      .catch((err) => res.status(500).json(err));
   },
   /** DELETE to remove user by its _id */
   // bonus: remove a user's associated thoughts when deleted
