@@ -4,55 +4,192 @@ info:
   description: API Description for the Global Stand Up API endpoints
   version: 1.0.0
 servers:
-  - url: http://api.example.com/v1
-    description: Optional server description, e.g. Main (production) server
-  - url: http://staging-api.example.com
-    description: Optional server description, e.g. Internal staging server for testing
+  - url: http://localhost:3001
+    description: Local development server. Clone, install, and serve the code to test.
 paths:
   /api/users:
     get:
-      summary: Returns a list of users.
-      description: Optional extended description in CommonMark or HTML.
+      tags:
+        - Users
       responses:
-        "200": # status code
-          description: A JSON array of user names
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: string
+        "200":
+          description: OK
     post:
-      summary: Creates a user.
-      description: Optional extended description in CommonMark or HTML.
+      tags:
+        - Users
       responses:
-        "200": # status code
-          description: A JSON array of user names
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: string
+        "200":
+          description: OK
   /api/users/{userId}:
     get:
+      tags:
+        - Users
       parameters:
         - name: userId
           in: path
           required: true
-          description: Parameter description in CommonMark or HTML.
           schema:
             type: integer
             format: int64
             minimum: 1
-      summary: Returns a single user.
-      description: Optional extended description in CommonMark or HTML.
       responses:
-        "200": # status code
-          description: A JSON array of user names
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: string
+        "200":
+          description: OK
+    put:
+      tags:
+        - Users
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      responses:
+        "200":
+          description: OK
+    delete:
+      tags:
+        - Users
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      responses:
+        "200":
+          description: OK
+  /api/users/{userId}/friends:
+    post:
+      tags:
+        - Friends
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      responses:
+        "200":
+          description: OK
+  /api/users/{userId}/friends/{friendId}:
+    delete:
+      tags:
+        - Friends
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+        - name: friendId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      responses:
+        "200":
+          description: OK
+  /api/thoughts:
+    get:
+      tags:
+        - Thoughts
+      responses:
+        "200":
+          description: OK
+    post:
+      tags:
+        - Thoughts
+      responses:
+        "200":
+          description: OK
+  /api/thoughts/{thoughtId}:
+    get:
+      tags:
+        - Thoughts
+      parameters:
+        - name: thoughtId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      responses:
+        "200":
+          description: OK
+    put:
+      tags:
+        - Thoughts
+      parameters:
+        - name: thoughtId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      responses:
+        "200":
+          description: OK
+    delete:
+      tags:
+        - Thoughts
+      parameters:
+        - name: thoughtId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      responses:
+        "200":
+          description: OK
+  /api/thoughts/{thoughtId}/reactions:
+    post:
+      tags:
+        - Reactions
+      parameters:
+        - name: thoughtId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      responses:
+        "200":
+          description: OK
+  /api/thoughts/{thoughtId}/reactions/{reactionId}:
+    delete:
+      tags:
+        - Reactions
+      parameters:
+        - name: thoughtId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+        - name: reactionId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      responses:
+        "200":
+          description: OK
