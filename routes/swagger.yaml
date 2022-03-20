@@ -6,6 +6,8 @@ info:
 servers:
   - url: http://localhost:3001
     description: Local development server. Clone, install, and serve the code to test.
+  - url: https://global-stand-up.herokuapp.com
+    description: Live deployed production server running on heroku, connected to MongoDB Atlas.
 paths:
   /api/users:
     get:
