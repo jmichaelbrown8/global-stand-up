@@ -34,9 +34,7 @@ paths:
           in: path
           required: true
           schema:
-            type: integer
-            format: int64
-            minimum: 1
+            type: string
       responses:
         "200":
           description: OK
@@ -49,9 +47,7 @@ paths:
           in: path
           required: true
           schema:
-            type: integer
-            format: int64
-            minimum: 1
+            type: string
       responses:
         "200":
           description: OK
@@ -64,9 +60,7 @@ paths:
           in: path
           required: true
           schema:
-            type: integer
-            format: int64
-            minimum: 1
+            type: string
       responses:
         "200":
           description: OK
@@ -80,9 +74,7 @@ paths:
           in: path
           required: true
           schema:
-            type: integer
-            format: int64
-            minimum: 1
+            type: string
       responses:
         "200":
           description: OK
@@ -96,16 +88,12 @@ paths:
           in: path
           required: true
           schema:
-            type: integer
-            format: int64
-            minimum: 1
+            type: string
         - name: friendId
           in: path
           required: true
           schema:
-            type: integer
-            format: int64
-            minimum: 1
+            type: string
       responses:
         "200":
           description: OK
@@ -134,9 +122,7 @@ paths:
           in: path
           required: true
           schema:
-            type: integer
-            format: int64
-            minimum: 1
+            type: string
       responses:
         "200":
           description: OK
@@ -149,9 +135,7 @@ paths:
           in: path
           required: true
           schema:
-            type: integer
-            format: int64
-            minimum: 1
+            type: string
       responses:
         "200":
           description: OK
@@ -164,9 +148,7 @@ paths:
           in: path
           required: true
           schema:
-            type: integer
-            format: int64
-            minimum: 1
+            type: string
       responses:
         "200":
           description: OK
@@ -180,9 +162,7 @@ paths:
           in: path
           required: true
           schema:
-            type: integer
-            format: int64
-            minimum: 1
+            type: string
       responses:
         "200":
           description: OK
@@ -196,16 +176,12 @@ paths:
           in: path
           required: true
           schema:
-            type: integer
-            format: int64
-            minimum: 1
+            type: string
         - name: reactionId
           in: path
           required: true
           schema:
-            type: integer
-            format: int64
-            minimum: 1
+            type: string
       responses:
         "200":
           description: OK

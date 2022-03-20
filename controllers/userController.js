@@ -13,7 +13,9 @@ module.exports = {
   },
   /** POST a new user */
   createUser(req, res) {
-    res.send("Unimplemented");
+    User.create(req.body)
+      .then((user) => res.json(user))
+      .catch((err) => res.status(500).json(err));
   },
   /** PUT to update a user by its _id */
   updateUser(req, res) {
