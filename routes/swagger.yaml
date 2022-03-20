@@ -13,12 +13,14 @@ paths:
     get:
       tags:
         - Users
+      description: GET all users
       responses:
         "200":
           description: OK
     post:
       tags:
         - Users
+      description: POST a new user
       responses:
         "200":
           description: OK
@@ -26,6 +28,7 @@ paths:
     get:
       tags:
         - Users
+      description: GET a single user by its _id and populated thought and friend data
       parameters:
         - name: userId
           in: path
@@ -40,6 +43,7 @@ paths:
     put:
       tags:
         - Users
+      description: PUT to update a user by its _id
       parameters:
         - name: userId
           in: path
@@ -54,6 +58,7 @@ paths:
     delete:
       tags:
         - Users
+      description: DELETE to remove user by its _id
       parameters:
         - name: userId
           in: path
@@ -69,6 +74,7 @@ paths:
     post:
       tags:
         - Friends
+      description: POST to add a new friend to a user's friend list
       parameters:
         - name: userId
           in: path
@@ -84,6 +90,7 @@ paths:
     delete:
       tags:
         - Friends
+      description: DELETE to remove a friend from a user's friend list
       parameters:
         - name: userId
           in: path
@@ -106,12 +113,14 @@ paths:
     get:
       tags:
         - Thoughts
+      description: GET to get all thoughts
       responses:
         "200":
           description: OK
     post:
       tags:
         - Thoughts
+      description: POST to create a new thought
       responses:
         "200":
           description: OK
@@ -119,6 +128,7 @@ paths:
     get:
       tags:
         - Thoughts
+      description: GET to get a single thought by its _id
       parameters:
         - name: thoughtId
           in: path
@@ -133,6 +143,7 @@ paths:
     put:
       tags:
         - Thoughts
+      description: PUT to update a thought by its _id
       parameters:
         - name: thoughtId
           in: path
@@ -147,6 +158,7 @@ paths:
     delete:
       tags:
         - Thoughts
+      description: DELETE to remove a thought by its _id
       parameters:
         - name: thoughtId
           in: path
@@ -162,6 +174,7 @@ paths:
     post:
       tags:
         - Reactions
+      description: POST to create a reaction stored in a single thought's reactions array field
       parameters:
         - name: thoughtId
           in: path
@@ -177,6 +190,7 @@ paths:
     delete:
       tags:
         - Reactions
+      description: DELETE to pull and remove a reaction by the reaction's reactionId value
       parameters:
         - name: thoughtId
           in: path
