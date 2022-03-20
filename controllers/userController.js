@@ -3,7 +3,9 @@ const { User, Thought } = require("../models");
 module.exports = {
   // GET all users
   getUsers(req, res) {
-    res.send("Unimplemented");
+    User.find()
+      .then((users) => res.json(users))
+      .catch((err) => res.status(500).json(err));
   },
   // GET a single user by its _id and populated thought and friend data
   getSingleUser(req, res) {
