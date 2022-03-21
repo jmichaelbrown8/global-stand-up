@@ -50,16 +50,41 @@ module.exports = {
       .then((user) =>
         !user
           ? res.status(404).json({ message: "No user with that id" })
-          : res.json({ user, message: `Deleted user ${user.id}`})
+          : res.json({ user, message: `Deleted user ${user.id}` })
       )
       .catch((err) => res.status(500).json(err));
   },
   /** POST to add a new friend to a user's friend list */
   addFriend(req, res) {
-    res.send("Unimplemented");
+    User.findByIdAndUpdate(
+      req.params.userId,
+      {
+        $addToSet: { friends: req.body },
+      },
+      { runValidators: true, new: true }
+    )
+      .then((user) =>
+        !user
+          ? res.status(404).json({ message: "No user what that id" })
+          : res.json(user)
+      )
+      .catch((err) => res.status(500).json(err));
   },
   /** DELETE to remove a friend from a user's friend list */
   removeFriend(req, res) {
-    res.send("Unimplemented");
+    const { userId, friendId } = req.params;
+    User.findByIdAndUpdate(
+      userId,
+      {
+        $pull: { friends: friendId },
+      },
+      { runValidators: true, new: true }
+    )
+      .then((user) =>
+        !user
+          ? res.status(404).json({ message: "No user what that id" })
+          : res.json(user)
+      )
+      .catch((err) => res.status(500).json(err));
   },
 };
