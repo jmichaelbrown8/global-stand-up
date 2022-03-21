@@ -9,12 +9,21 @@ module.exports = {
   },
   /** GET to get a single thought by its _id */
   getSingleThought(req, res) {
-    res.send("Unimplemented");
+    const { thoughtId } = req.params;
+    Thought.findById(thoughtId)
+      .then((thought) =>
+        !thought
+          ? res.status(404).json({ message: "thoughtId not found" })
+          : res.json(thought)
+      )
+      .catch((err) => res.status(500).json(err));
   },
   /** POST to create a new thought */
   // (don't forget to push the created thought's _id to the associated user's thoughts array field)
   createThought(req, res) {
-    res.send("Unimplemented");
+    Thought.create(req.body)
+      .then((thought) => res.json(thought))
+      .catch((err) => res.status(500).json(err));
   },
   /** PUT to update a thought by its _id */
   updateThought(req, res) {

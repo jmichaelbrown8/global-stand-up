@@ -8,5 +8,21 @@
             "username": "JaneSmith",
             "email": "janesmith@gmail.com"
         }
+    ],
+    "thoughts": [
+        {
+            "thoughtText": "I think, therefore I am.",
+            "username": "JohnDoe",
+            "reactions": [
+                {
+                    "reactionText": "Of course you do",
+                    "username": "JaneSmith"
+                }
+            ]
+        },
+        {
+            "thoughtText": "I think I can, I think I can, I think I can.",
+            "username": "JaneSmith"
+        }
     ]
 }
