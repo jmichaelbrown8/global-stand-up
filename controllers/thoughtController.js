@@ -56,7 +56,11 @@ module.exports = {
       },
       { runValidators: true, new: true }
     )
-      .then((thought) => res.json(thought))
+      .then((thought) =>
+        !thought
+          ? res.status(404).json({ message: "No thought found with that id." })
+          : res.json(thought)
+      )
       .catch((err) => res.status(500).json(err));
   },
   /** DELETE to pull and remove a reaction by the reaction's reactionId value */
@@ -65,7 +69,7 @@ module.exports = {
     Thought.findByIdAndUpdate(
       thoughtId,
       {
-        $pull: { reactions: reactionId },
+        $pull: { reactions: { reactionId } },
       },
       { runValidators: true, new: true }
     )
