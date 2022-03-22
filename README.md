@@ -4,6 +4,7 @@ A social media back end for collaboration built with NodeJS, Express, Mongoose, 
 
 View the Swagger API Docs and test the deployed API on Heroku here: https://global-stand-up.herokuapp.com/
 
+You can view a video of the API in action [here](https://drive.google.com/file/d/1FKK8nB28BHfCt7TghT07qmucma6rfQ4R/view?usp=sharing)
 ## Prerequisites
 
 - NodeJS
