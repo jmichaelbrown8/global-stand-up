@@ -49,7 +49,7 @@ thoughtSchema.post("save", function (thought, next) {
 
 // friendCount virtual
 thoughtSchema.virtual("reactionCount").get(function () {
-  return this.reactions.length;
+  return this.reactions && this.reactions.length;
 });
 
 const Thought = model("Thought", thoughtSchema);
