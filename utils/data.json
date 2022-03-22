@@ -15,8 +15,9 @@
             "username": "JohnDoe",
             "reactions": [
                 {
-                    "reactionText": "Of course you do",
-                    "username": "JaneSmith"
+                    "reactionBody": "Of course you do",
+                    "username": "JaneSmith",
+                    "reactionId": "62390d0ad32456820d173a2f"
                 }
             ]
         },

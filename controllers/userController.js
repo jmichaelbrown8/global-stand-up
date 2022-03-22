@@ -40,7 +40,7 @@ module.exports = {
       { $set: req.body },
       { runValidators: true, new: true }
     )
-      .then(async (user) =>
+      .then((user) =>
         !user
           ? res.status(404).json({ message: "No user with that id" })
           : res.json(user)
@@ -69,7 +69,7 @@ module.exports = {
     )
       .then((user) =>
         !user
-          ? res.status(404).json({ message: "No user what that id" })
+          ? res.status(404).json({ message: "No user with that id" })
           : res.json(user)
       )
       .catch((err) => res.status(500).json(err));

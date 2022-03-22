@@ -1,10 +1,12 @@
 const { Schema, Types } = require("mongoose");
+const User = require("./User");
 
 const reactionSchema = new Schema(
   {
     reactionId: {
       type: Schema.Types.ObjectId,
       default: () => new Types.ObjectId(),
+      immutable: true,
     },
     reactionBody: {
       type: String,
@@ -17,6 +19,12 @@ const reactionSchema = new Schema(
     username: {
       type: String,
       required: true,
+      validate: {
+        validator: function (username) {
+          return User.exists({ username });
+        },
+        message: "User does not exist",
+      },
     },
     createdAt: {
       type: Date,
@@ -28,6 +36,7 @@ const reactionSchema = new Schema(
     toJSON: {
       getters: true,
     },
+    _id: false,
     id: false,
   }
 );
